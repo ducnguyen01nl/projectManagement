@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LayOutHeader.master.cs" Inherits="BtlLtwnc.LayOut.LayOutHeader" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet" />
+    <%--<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />--%>
+    <link href="../Assets/font/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css" rel="stylesheet" />
+
+    <link href="../Styles/grid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="LayOutHeader.css">
+    <link href="../Styles/index.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="main">
+        <header class="main__header">
+            <div class="main__header__right">
+                <div class="header__logo">
+                    <img
+                        class="header__logo--img"
+                        src="./Assets/Img/logo.jpg"
+                        alt="lỗi" />
+                </div>
+                <div class="header__manager">
+                    <a href="Home.aspx" class="header__manager--item">Quản lý dự án</a>
+                     <%if (Session["roleUserLogin"] !=null && Convert.ToInt32(Session["roleUserLogin"])<=1)
+            { %>
+         <a href="NhanVien.aspx" class="header__manager--item">Quản lý nhân sự</a>
+        <%} %>
+                   
+                </div>
+            </div>
+            <div class="main__header__left">
+                <div class="header__search">
+                    <input
+                        type="text"
+                        class="header__search--input"
+                        placeholder="Tìm kiếm" 
+                        />
+                    <button class="header__search--btn" onclick="search()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+               <%-- <span class="main__header__help">
+                    <i class="far fa-question-circle"></i>
+                </span>--%>
+                <div class="header__user">
+                   <div class="header__user--menu">
+                       <i class="fas fa-bars"></i>
+                   </div>
+                    <div class="header__user__dropDown">
+                        
+                        <ul class="header__user__dropDown--List">
+                             <%if (Session["roleUserLogin"] !=null && Convert.ToInt32(Session["roleUserLogin"])<=1)
+            { %>
+                             <li>
+                                 <a class="header__user__dropDown--List--item" href="Admin.aspx">Tài khoản</a>
+                            </li>
+                            <li>
+                                <a class="header__user__dropDown--List--item" href="NhanVien.aspx">Nhân sự</a>
+                            </li>
+        <%} %>
+                            
+                            <li>
+                                <a class="header__user__dropDown--List--item" href="Home.aspx">Dự án</a>
+                            </li>
+                            
+                        </ul>
+                        <hr class="header__user__dropDown--hr" />
+                        <div class="header__user__dropDown--List--item--logout">
+                            <a href="../Login.aspx" id="btn-logout" class="header__user__dropDown--List--item ">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="overlay" class="overlay"></div>
+
+
+    </div>
+    <asp:ContentPlaceHolder ID="script" runat="server">
+
+     </asp:ContentPlaceHolder>
+    <script>
+        document.querySelectorAll("img[user]").forEach(item => {
+            console.log("item: ", item);
+            item.addEventListener('error', function () {
+                this.onerror = null;
+                this.src = './Assets/Img/no-avata.jpg';
+            });
+        });
+
+        function search() {
+            let valueSearch = document.querySelector(".header__search--input").value;
+            window.location.href ="Home.aspx?q=" + valueSearch;
+        }
+
+    </script>
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <script src="../Script/layoutHeader.js"></script>
+</body>
+</html>

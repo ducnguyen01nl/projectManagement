@@ -1,0 +1,251 @@
+﻿/*listProject*/
+.list-project{
+    display:flex;
+    align-items:start;
+}
+
+.add-project {
+    width: 16.66667%;
+    padding: 18px;
+}
+/* actions */
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.actions__select select,
+.actions__btn--add, #actions__select__type__sort, #actions__select__type__sort--btn {
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+    .actions__btn--add:hover {
+        cursor: pointer;
+        filter: brightness(80%);
+    }
+
+
+
+/* project card */
+
+.project__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #191c1e;
+    border-radius: 4px;
+    padding: 18px;
+    padding-top: 32px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.project__card__img {
+    width: 100%;
+    height: 125px;
+    box-shadow: 0 0px 5px 1px rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-bottom:8px;
+}
+
+.project__card--info {
+    color: #ededed;
+    font-size: 12px;
+    width: 100%;
+}
+
+.project__card--info__name {
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    color: #ededed;
+}
+.project__card--info--detail {
+}
+
+.project__card--info--hr {
+    border: 1px solid #5500ff;
+    width: 100%;
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+.project__card__complete {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    font-size: 8px;
+    color: #fff;
+    width: 100%;
+    transition: all ease-in-out 0.3s;
+    box-shadow: 0 0px 5px 1px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.project__card:hover .project__card__complete {
+    height: 12px;
+}
+
+.project__card__complete--progress {
+    position: relative;
+    background: linear-gradient(45deg, blue, rgb(255, 125, 125));
+    overflow: hidden;
+    width: 70%;
+    height: 100%;
+}
+
+.project__card__complete--animation {
+    position: absolute;
+    top: 0;
+    background: linear-gradient( 45deg, rgb(0, 0, 255, 0.5), rgb(255, 125, 125, 0.5) );
+    height: 100%;
+    width: 100%;
+    animation: complete--animation linear 1.5s infinite;
+}
+
+.project__card__complete--percent {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes complete--animation {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.project__card__menu--btn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 8px;
+    border: 0;
+    background-color: transparent;
+    color: #f4f4f4;
+    cursor: pointer;
+    display: none;
+}
+
+.project__card:hover .project__card__menu--btn {
+    display: block;
+}
+
+.project__card.menu--show {
+    z-index: 11;
+}
+
+    .project__card.menu--show .project__card__menu {
+        display: block;
+    }
+
+.project__card__menu {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    transform: translateX(100%);
+    list-style: none;
+    display: none;
+}
+
+.project__card__menu--item {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    clear: both;
+    color: #c7d1db;
+    display: block;
+    float: left;
+    margin: 0 0 4px 8px;
+    padding: 6px 12px 6px 8px;
+    text-decoration: none;
+    text-align:left;
+    transition: transform 85ms ease-in;
+    cursor:pointer;
+}
+
+    .project__card__menu--item:hover {
+        background: #000c;
+        color: #fff;
+        text-decoration: none;
+        transform: translateX(5px);
+    }
+
+.project__card__menu--item--text {
+    margin-left: 4px;
+
+}
+
+
+.form.wrapper__modal{
+    display:flex;
+    flex-direction:column;
+}
+
+
+/*Phân trang*/
+
+#listProjectPagination{
+    margin-top:16px;
+}
+#listProjectPagination button {
+    padding: 4px 16px;
+    font-size: 14px;
+    color: #161823;
+    margin: 0;
+    cursor: pointer;
+}
+
+    #listProjectPagination button:hover {
+        color: #a6b3b3;
+    }
+
+#listProjectPagination .active {
+    color: #fff;
+    background-color: rgba(68,68,68,0.4);
+}
+#listProjectPagination .disable {
+    pointer-events: none;
+    color: #444 !important;
+}
+
+#listProjectPagination .active:hover {
+    color: #999;
+}
+    /*add project*/
+    .add__project--wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+.add__project__form {
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add__project__form--item{
+    margin-bottom:8px;
+}
+
+.add__project__form--title{
+    margin-bottom:8px;
+}

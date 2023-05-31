@@ -1,0 +1,103 @@
+﻿button,
+input,
+[tabindex] {
+    font-family: "IBM Plex Sans", sans-serif;
+    outline: none;
+    border: none;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper__login {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, #425a98, #cf888b);
+}
+
+.login__form {
+    min-width: 350px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 80px 20px 10px;
+    z-index: 2;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+.login__form--logo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #01264e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20%;
+    color: #fff;
+    font-size: 3.3rem;
+}
+
+.login__form--group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.login__form--label {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00274c;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+}
+
+.login__form--input {
+    border-radius: 0;
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    padding: 8px;
+    flex: 1;
+    background-color: #385272;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.actions--login {
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .actions--login:hover {
+        color: #01264e;
+    }
